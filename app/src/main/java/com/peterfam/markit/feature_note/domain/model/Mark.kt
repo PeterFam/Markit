@@ -15,3 +15,5 @@ data class Mark(
 ){
     val markColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)
 }
+
+class InvalidMarkException(msg: String): Exception(msg)
