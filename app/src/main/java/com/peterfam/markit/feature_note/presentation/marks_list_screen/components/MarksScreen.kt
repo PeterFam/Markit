@@ -1,4 +1,4 @@
-package com.peterfam.markit.feature_note.presentation.components
+package com.peterfam.markit.feature_note.presentation.marks_list_screen.components
 
 import androidx.compose.animation.*
 import androidx.compose.foundation.clickable
@@ -16,8 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.peterfam.markit.feature_note.presentation.MarkItEvent
-import com.peterfam.markit.feature_note.presentation.MarkItViewModel
+import com.peterfam.markit.feature_note.presentation.marks_list_screen.MarkItEvent
+import com.peterfam.markit.feature_note.presentation.marks_list_screen.MarkItViewModel
 import kotlinx.coroutines.launch
 
 @ExperimentalAnimationApi

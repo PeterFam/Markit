@@ -1,4 +1,4 @@
-package com.peterfam.markit.feature_note.presentation.components
+package com.peterfam.markit.feature_note.presentation.marks_list_screen.components
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*

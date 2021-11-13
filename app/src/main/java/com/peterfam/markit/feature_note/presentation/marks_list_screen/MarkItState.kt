@@ -1,4 +1,4 @@
-package com.peterfam.markit.feature_note.presentation
+package com.peterfam.markit.feature_note.presentation.marks_list_screen
 
 import com.peterfam.markit.feature_note.domain.model.Mark
 import com.peterfam.markit.feature_note.domain.util.MarkOrder

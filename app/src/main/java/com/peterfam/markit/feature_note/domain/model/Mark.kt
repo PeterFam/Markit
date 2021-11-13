@@ -13,7 +13,9 @@ data class Mark(
     val color: Int,
     @PrimaryKey val id: Int? = null,
 ){
-    val markColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)
+    companion object{
+        val markColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)
+    }
 }
 
 class InvalidMarkException(msg: String): Exception(msg)
