@@ -1,4 +1,4 @@
-package com.peterfam.markit.feature_note.presentation
+package com.peterfam.markit.feature_note.presentation.marks_list_screen
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -8,6 +8,8 @@ import com.peterfam.markit.feature_note.domain.model.Mark
 import com.peterfam.markit.feature_note.domain.use_case.MarkItUseCases
 import com.peterfam.markit.feature_note.domain.util.MarkOrder
 import com.peterfam.markit.feature_note.domain.util.OrderType
+import com.peterfam.markit.feature_note.presentation.marks_list_screen.MarkItEvent
+import com.peterfam.markit.feature_note.presentation.marks_list_screen.MarkItState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn
