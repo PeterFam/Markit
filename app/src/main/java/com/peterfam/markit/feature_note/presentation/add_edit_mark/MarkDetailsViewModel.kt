@@ -17,17 +17,20 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class AddEditMarkViewModel @Inject constructor(
+class MarkDetailsViewModel @Inject constructor(
     private val markItUseCases: MarkItUseCases,
     savedStateHandle: SavedStateHandle
-): ViewModel() {
+) : ViewModel() {
 
-    private val _markTitle = mutableStateOf(MarkTextFieldState(
-        hint = "Enter title..."
-    ))
-    val markTitle : State<MarkTextFieldState> = _markTitle
+    private val _markTitle = mutableStateOf(
+        MarkTextFieldState(
+            hint = "Enter title..."
+        )
+    )
+    val markTitle: State<MarkTextFieldState> = _markTitle
 
-    private val _markContent = mutableStateOf(MarkTextFieldState(
+    private val _markContent = mutableStateOf(
+        MarkTextFieldState(
         hint = "Enter here..."
     ))
     val markContent : State<MarkTextFieldState> = _markTitle
@@ -60,32 +63,33 @@ class AddEditMarkViewModel @Inject constructor(
             }
         }
     }
-    fun onEvent(event: AddEditMarkEvent){
-        when(event){
-            is AddEditMarkEvent.EnteredTitle -> {
+
+    fun onEvent(event: MarkDetailsEvent) {
+        when (event) {
+            is MarkDetailsEvent.EnteredTitle -> {
                 _markTitle.value = markTitle.value.copy(
                     text = event.value
                 )
             }
-            is AddEditMarkEvent.ChangeTitleFocus -> {
+            is MarkDetailsEvent.ChangeTitleFocus -> {
                 _markTitle.value = markTitle.value.copy(
                     isHintVisible = !event.focusState.isFocused && _markTitle.value.text.isBlank()
                 )
             }
-            is AddEditMarkEvent.EnteredContent -> {
+            is MarkDetailsEvent.EnteredContent -> {
                 _markContent.value = markContent.value.copy(
                     text = event.value
                 )
             }
-            is AddEditMarkEvent.ChangeContentFocus -> {
+            is MarkDetailsEvent.ChangeContentFocus -> {
                 _markContent.value = markContent.value.copy(
                     isHintVisible = !event.focusState.isFocused && _markContent.value.text.isBlank()
                 )
             }
-            is AddEditMarkEvent.ChangeColor -> {
+            is MarkDetailsEvent.ChangeColor -> {
                 _markColor.value = event.color
             }
-            is AddEditMarkEvent.SaveNote -> {
+            is MarkDetailsEvent.SaveMark -> {
                 viewModelScope.launch {
                     try {
                         markItUseCases.addMarkUseCase(
