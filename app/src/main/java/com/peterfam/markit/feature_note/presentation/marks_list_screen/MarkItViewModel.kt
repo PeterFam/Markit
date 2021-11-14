@@ -8,8 +8,6 @@ import com.peterfam.markit.feature_note.domain.model.Mark
 import com.peterfam.markit.feature_note.domain.use_case.MarkItUseCases
 import com.peterfam.markit.feature_note.domain.util.MarkOrder
 import com.peterfam.markit.feature_note.domain.util.OrderType
-import com.peterfam.markit.feature_note.presentation.marks_list_screen.MarkItEvent
-import com.peterfam.markit.feature_note.presentation.marks_list_screen.MarkItState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn
@@ -39,6 +37,7 @@ class MarkItViewModel @Inject constructor(
                         state.value.marksOrder.orderType == event.markOrder.orderType){
                     return
                 }
+               getMarks(event.markOrder)
             }
             is MarkItEvent.DeleteNote -> {
                 viewModelScope.launch {
@@ -59,11 +58,14 @@ class MarkItViewModel @Inject constructor(
             }
         }
     }
-    private fun getMarks(markOrder: MarkOrder){
+    private fun getMarks(markOrder: MarkOrder) {
         getMarksJob?.cancel()
-        getMarksJob = markItUseCases.getMarksUseCase(markOrder).onEach { marks ->
-            _state.value = state.value.copy(marks = marks,
-            marksOrder = markOrder)
-        }.launchIn(viewModelScope)
+        getMarksJob = markItUseCases.getMarksUseCase(markOrder)
+            .onEach { marks ->
+                _state.value = state.value.copy(
+                    marks = marks,
+                    marksOrder = markOrder
+                )
+            }.launchIn(viewModelScope)
     }
 }

@@ -23,14 +23,14 @@ fun OrderSection(
             Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
                 text = "Date",
-                selected = markOrder is MarkOrder.Title,
-                onSelected = { onOrderChanged(MarkOrder.Date(markOrder.orderType))},
+                selected = markOrder is MarkOrder.Date,
+                onSelected = { onOrderChanged(MarkOrder.Date(markOrder.orderType)) },
             )
             Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
                 text = "Color",
-                selected = markOrder is MarkOrder.Title,
-                onSelected = { onOrderChanged(MarkOrder.Color(markOrder.orderType))},
+                selected = markOrder is MarkOrder.Color,
+                onSelected = { onOrderChanged(MarkOrder.Color(markOrder.orderType)) },
             )
         }
         Spacer(modifier = Modifier.height(16.dp))

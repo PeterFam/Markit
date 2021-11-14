@@ -1,5 +1,6 @@
-package com.peterfam.markit.feature_note.presentation.add_edit_mark.component
+package com.peterfam.markit.feature_note.presentation.mark_details.component
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.Text
@@ -22,17 +23,19 @@ fun TransparentHintTextField(
     singleLine: Boolean = false,
     onFocusChange: (FocusState) -> Unit
 ) {
-    BasicTextField(
-        value = text,
-        onValueChange = onValueChange,
-        singleLine = singleLine,
-        textStyle = textStyle,
-        modifier = Modifier
-            .fillMaxWidth()
-            .onFocusChanged {
-                onFocusChange(it)
-            })
-    if (isHintVisible) {
-        Text(text = hint, style = textStyle, color = Color.DarkGray)
+    Box(modifier = modifier) {
+        BasicTextField(
+            value = text,
+            onValueChange = onValueChange,
+            singleLine = singleLine,
+            textStyle = textStyle,
+            modifier = Modifier
+                .fillMaxWidth()
+                .onFocusChanged {
+                    onFocusChange(it)
+                })
+        if (isHintVisible) {
+            Text(text = hint, style = textStyle, color = Color.DarkGray)
+        }
     }
 }

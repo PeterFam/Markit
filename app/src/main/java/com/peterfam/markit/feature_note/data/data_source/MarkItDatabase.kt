@@ -7,7 +7,7 @@ import com.peterfam.markit.feature_note.domain.model.Mark
 @Database(
     entities = [Mark::class],
     version = 1
-    )
+)
 abstract class MarkItDatabase : RoomDatabase(){
     abstract val markItDao: MarkItDao
 
