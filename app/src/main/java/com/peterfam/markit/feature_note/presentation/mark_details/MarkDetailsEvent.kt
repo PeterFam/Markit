@@ -1,4 +1,4 @@
-package com.peterfam.markit.feature_note.presentation.add_edit_mark
+package com.peterfam.markit.feature_note.presentation.mark_details
 
 import androidx.compose.ui.focus.FocusState
 

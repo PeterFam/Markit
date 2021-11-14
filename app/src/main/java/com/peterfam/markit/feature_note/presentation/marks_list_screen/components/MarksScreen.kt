@@ -18,6 +18,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.peterfam.markit.feature_note.presentation.marks_list_screen.MarkItEvent
 import com.peterfam.markit.feature_note.presentation.marks_list_screen.MarkItViewModel
+import com.peterfam.markit.feature_note.presentation.util.Screen
 import kotlinx.coroutines.launch
 
 @ExperimentalAnimationApi
@@ -33,7 +34,7 @@ fun MarksScreen(
     Scaffold(floatingActionButton = {
         FloatingActionButton(
         onClick = {
-
+            navController.navigate(Screen.MarkDetailsScreen.route)
         }, backgroundColor = MaterialTheme.colors.primary) {
         Icon(imageVector = Icons.Default.Add, contentDescription = "Add Mark")
         }
@@ -76,7 +77,7 @@ fun MarksScreen(
                         mark = mark, modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-
+                                navController.navigate(Screen.MarkDetailsScreen.route + "?markId=${mark.id}&markColor=${mark.color}")
                             },
                     onDeleteClick = {
                         viewModel.onEvent(MarkItEvent.DeleteNote(mark = mark))

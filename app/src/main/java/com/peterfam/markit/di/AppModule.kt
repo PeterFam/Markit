@@ -1,7 +1,7 @@
 package com.peterfam.markit.di
 
+import android.app.Application
 import androidx.room.Room
-import com.peterfam.markit.MarkItApp
 import com.peterfam.markit.feature_note.data.data_source.MarkItDatabase
 import com.peterfam.markit.feature_note.data.repository.MarkItRepositoryImpl
 import com.peterfam.markit.feature_note.domain.repository.MarkItRepository
@@ -19,7 +19,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideMarkItDatabase(app: MarkItApp): MarkItDatabase{
+    fun provideMarkItDatabase(app: Application): MarkItDatabase {
         return Room.databaseBuilder(
             app,
             MarkItDatabase::class.java,

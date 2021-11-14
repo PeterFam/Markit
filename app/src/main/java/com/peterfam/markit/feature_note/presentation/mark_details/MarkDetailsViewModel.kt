@@ -1,4 +1,4 @@
-package com.peterfam.markit.feature_note.presentation.add_edit_mark
+package com.peterfam.markit.feature_note.presentation.mark_details
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -28,12 +28,12 @@ class MarkDetailsViewModel @Inject constructor(
         )
     )
     val markTitle: State<MarkTextFieldState> = _markTitle
-
     private val _markContent = mutableStateOf(
         MarkTextFieldState(
-        hint = "Enter here..."
-    ))
-    val markContent : State<MarkTextFieldState> = _markTitle
+            hint = "Enter here..."
+        )
+    )
+    val markContent: State<MarkTextFieldState> = _markContent
 
     private val _markColor = mutableStateOf(Mark.markColors.random().toArgb())
     val markColor: State<Int> = _markColor
@@ -77,12 +77,12 @@ class MarkDetailsViewModel @Inject constructor(
                 )
             }
             is MarkDetailsEvent.EnteredContent -> {
-                _markContent.value = markContent.value.copy(
+                _markContent.value = _markContent.value.copy(
                     text = event.value
                 )
             }
             is MarkDetailsEvent.ChangeContentFocus -> {
-                _markContent.value = markContent.value.copy(
+                _markContent.value = _markContent.value.copy(
                     isHintVisible = !event.focusState.isFocused && _markContent.value.text.isBlank()
                 )
             }

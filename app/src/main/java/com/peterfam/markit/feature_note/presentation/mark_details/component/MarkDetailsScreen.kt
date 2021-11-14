@@ -1,4 +1,4 @@
-package com.peterfam.markit.feature_note.presentation.add_edit_mark.component
+package com.peterfam.markit.feature_note.presentation.mark_details.component
 
 import androidx.compose.animation.Animatable
 import androidx.compose.animation.core.tween
@@ -23,8 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.peterfam.markit.feature_note.domain.model.Mark
-import com.peterfam.markit.feature_note.presentation.add_edit_mark.MarkDetailsEvent
-import com.peterfam.markit.feature_note.presentation.add_edit_mark.MarkDetailsViewModel
+import com.peterfam.markit.feature_note.presentation.mark_details.MarkDetailsEvent
+import com.peterfam.markit.feature_note.presentation.mark_details.MarkDetailsViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
